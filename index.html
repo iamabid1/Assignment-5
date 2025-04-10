@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignemnt 5</title>
+    <!-- Importing TailwindCSS for styling the page with utility classes -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- DaisyUI is a plugin for Tailwind, offering pre-designed UI components like cards, buttons, etc. -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- FontAwesome icons are added for icons like checkboxes, etc. -->
+    <script src="https://kit.fontawesome.com/600882a594.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+    <section class="mx-32 bg-white rounded-3xl py-5 pt-5 relative top-7 flex items-center mb-11 justify-between">
+        <!-- Section for the header with logo and title -->
+        <div class="flex items-center"><img src="../assets/logo.png" alt="" class="pl-5">
+            <h1 class="text-3xl">Dev<span class="font-bold">Board</span></h1>
+        </div>
+        <div class="flex items-center mr-5">
+            <!-- A small box displaying a number with an image -->
+            <div class="mr-5 flex bg-slate-100 p-2 px-3 rounded-2xl">
+                <img src="../assets/checkbox.png" alt="">
+                <p class="ml-2 items-center font-bold text-lg" id="increaseNumber">23</p>
+            </div>
+            <!-- A button styled image for theme change -->
+            <div class="bg-slate-100 p-2 rounded-4xl cursor-pointer">
+                <img src="../assets/theme-btn.png" alt="" class="w-10" id="colorChanger">
+            </div>
+        </div>
+    </section>
+
+    <section class="flex ml-28 mr-32">
+        <div class="m-3 p-5 justify-around bg-white mx- rounded-3xl">
+            <!-- Cards section starts here -->
+            <div class="flex justify-around mb-7">
+                <!-- Task Assigned Card -->
+                <div class="bg-slate-100 p-10 flex rounded-lg w-[263px]">
+                    <img src="../assets/checkbox.png" alt="" class="items-center bg-white p-2 rounded-2xl">
+                    <p class="font-semibold text-sm text-gray-500 ml-2">
+                        Task Assigned <br> <span class="text-black text-lg font-bold" id="decreaseNumber">6</span>
+                    </p>
+                </div>
+                <!-- Discover Something Card -->
+                <div id="discoverSomething" class=" cursor-pointer flex p-2 bg-gradient-to-r from-[#3752FD] via-[#6C7FFA] to-[#9BA8F8] rounded-lg items-center w-[524px]">
+                    <img src="../assets/board.png" alt="" class="ml-12">
+                    <p class="text-lg text-white font-semibold mr-20">
+                        Discover Something <br> New Today!
+                    </p>
+                </div>
+                <!-- Calendar Card -->
+                <div class="bg-slate-100 p-10 flex rounded-lg w-[263px]">
+                    <img src="../assets/calender.png" alt="" class="items-center bg-white p-2 rounded-2xl">
+                    <p class="font-semibold text-lg text-slate-500">
+                        Wed, <br> <span class="text-black">30 March 2025</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cards for tasks or projects -->
+            <div class="grid grid-cols-3 gap-4 mx-7">
+                <div class="card w-96 bg-slate-100 card-md shadow-sm ">
+                    <div class="card-body">
+                        <p class=" bg-white  px-3 pl-2 rounded-lg w-20">ShopEase</p>
+                        <p class="text-2xl">Fix Mobile Button Issue </p>
+                        <p class="bg-white p-4 rounded-lg w-80 text-gray-400">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly</p>
+                        <div class="justify-between card-actions mt-4">
+                            <p class="text-sm text-gray-400">Deadline <br> <span class="text-base text-black font-medium">12 July 2025</span></p>
+                            <button class="btn btn-primary relative right-4 buttonw" onclick="clickHandle(this)">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Another task card -->
+                <div class="card w-96 bg-slate-100 card-md shadow-sm ">
+                    <div class="card-body">
+                        <p class=" bg-white  px-3 pl-2 rounded-lg w-20">CloudSync</p>
+                        <p class="text-2xl">Add Dark Mode</p>
+                        <p class="bg-white p-4 rounded-lg w-80 text-gray-400">Store the user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.</p>
+                        <div class="justify-between card-actions mt-4">
+                            <p class="text-sm text-gray-400">Deadline <br> <span class="text-base text-black font-medium">12 July 2025</span></p>
+                            <button class="btn btn-primary relative right-4 buttonw"  onclick="clickHandle(this)">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Another task card -->
+                <div class="card w-96 bg-slate-100 card-md shadow-sm ">
+                    <div class="card-body">
+                        <p class=" bg-white  px-3 pl-2 rounded-lg w-20">SwiftPay</p>
+                        <p class="text-2xl">Optimize  Home page</p>
+                        <p class="bg-white p-4 rounded-lg w-80 text-gray-400">You can pay money to anywhere and shopping, give Eid Salami, etc.</p>
+                        <div class="justify-between card-actions mt-4">
+                            <p class="text-sm text-gray-400">Deadline <br> <span class="text-base text-black font-medium">12 July 2025</span></p>
+                            <button class="btn btn-primary relative right-4 buttonw" onclick="clickHandle(this)">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- More task cards below -->
+                <div class="card w-96 bg-slate-100 card-md shadow-sm ">
+                    <div class="card-body">
+                        <p class=" bg-white  px-3 pl-2 rounded-lg w-20">Meta</p>
+                        <p class="text-2xl">Add new emoji 🤲</p>
+                        <p class="bg-white p-4 rounded-lg w-80 text-gray-400">Meta is a company with many popular apps like Instagram and Facebook, where we've added many emojis.</p>
+                        <div class="justify-between card-actions mt-4">
+                            <p class="text-sm text-gray-400">Deadline <br> <span class="text-base text-black font-medium">12 July 2025</span></p>
+                            <button class="btn btn-primary relative right-4 buttonw" onclick="clickHandle(this)">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card w-96 bg-slate-100 card-md shadow-sm ">
+                    <div class="card-body">
+                        <p class=" bg-white  px-3 pl-2 rounded-lg w-20">Google LLC</p>
+                        <p class="text-2xl">Integrate OpenAI API</p>
+                        <p class="bg-white p-4 rounded-lg w-80 text-gray-400">Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly</p>
+                        <div class="justify-between card-actions mt-4">
+                            <p class="text-sm text-gray-400">Deadline <br> <span class="text-base text-black font-medium">12 July 2025</span></p>
+                            <button class="btn btn-primary relative right-4 buttonw" onclick="clickHandle(this)">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card w-96 bg-slate-100 card-md shadow-sm ">
+                    <div class="card-body">
+                        <p class=" bg-white  px-3 pl-2 rounded-lg w-20">Glassdoor</p>
+                        <p class="text-2xl">Improve Job searching </p>
+                        <p class="bg-white p-4 rounded-lg w-80 text-gray-400">To search for jobs, you need to have skills like programming, etc. For WebDev, join ProgrammingHero</p>
+                        <div class="justify-between card-actions mt-4">
+                            <p class="text-sm text-gray-400">Deadline <br> <span class="text-base text-black font-medium">12 July 2025</span></p>
+                            <button class="btn btn-primary relative right-4 buttonw" onclick="clickHandle(this)">Completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Activity Log section on the right -->
+        <div class="w-72  bg-white rounded-3xl">
+            <div class="w-60 mx-auto my-5">
+                <div class="flex items-center justify-center">
+                    <img src="./assets/activity.png" alt="">
+                    <p class="text-xl ml-2">Activity Log</p>
+                </div>
+                <div class="flex justify-center mt-3">
+                    <!-- Button to clear activity history -->
+                    <button class="bg-[#3752FD] text-white px-4 py-2 rounded-lg">Clear History</button>
+                </div>
+            </div>
+            <div class="px-5">
+                <ul id="historyList"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adding custom JS file for any interactive functionality -->
+     <script src="../Scripts/colorchanger.js"></script>
+     <script src="../Scripts/discoverSomething.js"></script>
+     <script src="../Scripts/buttonWork.js"></script>
+    <script src="../utilities.js"></script>
+</body>
+
+</html>
